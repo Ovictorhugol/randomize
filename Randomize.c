@@ -1,5 +1,5 @@
 #include <stdio.h>
-#define Numero 3
+#define Numero 1000
 #include <time.h>
 #ifdef _WIN32
 #include <Windows.h>
@@ -18,26 +18,23 @@
     
  
     for (i = 0; i <= Numero; i++){
-       for(j = 0; j <= Numero; j++){
-         numeroAleatorio = rand() % 5000000;
-         vetorNumeros[i][j] = numeroAleatorio;
-         printf("linha %d e coluna %d : %d\n",i,j, vetorNumeros[i][j]);      
-       }
-        
+       for(j =)
+        numeroAleatorio = rand() % 5000000;
+        vetorNumeros[i] = numeroAleatorio;
+        printf("posicao %d: %d\n",i, vetorNumeros[i]);
     }
     i = 0;
-    j = 0;
+    
     do{
         
-         if(vetorNumeros[i][j] == numeroAchado){
-            printf("Achei o do vetor e %d e o numeroAchado e %d \n",vetorNumeros[i][j], numeroAchado );
+         if(vetorNumeros[i] == numeroAchado){
+            printf("Achei o do vetor e %d e o numeroAchado e %d \n",vetorNumeros[i], numeroAchado );
             numeroAchado= 0;
             i++;
-            j++;
          }else{
             numeroAchado++;
          }     
-    }while(i<=Numero&&j<= Numero);
+    }while(i<=Numero);
    
    t = clock() - t;
    double tempo = ((double)t)/CLOCKS_PER_SEC; 
