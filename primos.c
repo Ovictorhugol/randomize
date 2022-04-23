@@ -1,7 +1,7 @@
 #include <stdio.h>
-#define Tamanho 29
+#define Tamanho 1000
 int main(){
-    int i, j, vetor = 0, numeroDivisao, percorreVetor=0;
+    int i, j, vetor = 0, numeroDivisao, percorreVetor=0, auxLinha , auxColuna;;
     int primos[Tamanho][2]= {{0},{0}};
 
     for(i=0; i < Tamanho; i++){    
@@ -14,30 +14,18 @@ int main(){
         }
         primos[i][0]= vetor;
         printf("\n vetor %d %d \n",i, primos[i][0]);
-        for(j=0; j<2; j++){
-            if(j==0){
-               
+    }
+    for (auxLinha=0; auxLinha<Tamanho; auxLinha++) {      
+        if(primos[auxLinha][1]==0){
+            numeroDivisao = primos[auxLinha][0];
+            for (i=0; i <Tamanho ; i++){ 
+                if(primos[i][0]%numeroDivisao==0 && numeroDivisao != primos[i][0]){
+                    primos[i][1] = 1;
+                }
             }
         }
-        
+        printf("\n%d | %d\n", primos[auxLinha][0], primos[auxLinha][1]);
     }
-        for(i = 0; i < Tamanho; i++){
-            if(primos[i][1]!=1){
-                numeroDivisao = primos[i][0];
-                i++;
-                printf("\n %d \n ", numeroDivisao);
-                for(i=0;i<Tamanho;i++){
-                    if(primos[i][0] % numeroDivisao==0 && primos[i][0] != numeroDivisao){
-                        primos[i][1]=1;
-                        printf("\n %d | %d \n ", primos[i][1], primos[i][0]);
-                }else
-                    printf("\n %d | %d \n ", primos[i][1], primos[i][0]);
-                }
-            }   
-        }
-
 } 
+    
 
-void procuraNoVetor(){
-
-}
