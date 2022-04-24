@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <time.h>
-#define Tamanho 100000
+#define Tamanho 100
 
 int main(){
     int i, j, vetor = 0, numeroDivisao, percorreVetor=0, auxLinha , auxColuna;
@@ -25,9 +25,11 @@ int main(){
     }
 
 
-    for (auxLinha=0; auxLinha<Tamanho; auxLinha++) {      
+    for (auxLinha=0; auxLinha<Tamanho; auxLinha++) {   
+        
         if(primos[auxLinha][1]==0){
             numeroDivisao = primos[auxLinha][0];
+            printf("\n %d \n", numeroDivisao);
             for (i=0; i <Tamanho ; i++){ 
                 if(primos[i][0]%numeroDivisao==0 && numeroDivisao != primos[i][0]){
                     primos[i][1] = 1;

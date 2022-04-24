@@ -8,7 +8,7 @@ main(int argc, char *argv[]){
     double time;
     MPI_Status status;
     int tamanhoVetor [12];
-    int i, j, vetor = 0, numeroDivisao, percorreVetor=0, auxLinha , auxColuna;
+    int i, j, vetor = 0, numeroDivisao, percorreVetor=0, auxLinha , auxColuna, vetorPrimeiraMetade, vetorSegundaMetade;
     FILE *arq;
     int escreverArq;
     int primos[Tamanho][2]= {{0},{0}};
@@ -38,8 +38,10 @@ main(int argc, char *argv[]){
             primos[i][0]= vetor;
             // printf("\n vetor %d %d \n",i, primos[i][0]);
             }
-            for (i=0; i<size; i++)
-                    ret = MPI_Send(tamanhoVetor, 12, MPI_CHAR, i, tag, MPI_COMM_WORLD);
+            vetorPrimeiraMetade = Tamanho / 2; 
+            vetorSegundaMetade = Tamanho / 2;
+            for (i=1; i<size; i++)
+                    ret = MPI_Send(vetorPrimeiraMetade, 12, MPI_CHAR, i, tag, MPI_COMM_WORLD);
             time = MPI_Wtime() - time;        
     }
     else
